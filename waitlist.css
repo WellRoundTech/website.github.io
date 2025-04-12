@@ -1,0 +1,44 @@
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #1c1c1e;
+}
+/* Firefox scrollbar styling */
+html {
+  scrollbar-color: #686868 #1c1c1e;
+}
+
+/* Waitlist Section Styling */
+.waitlist-section {
+  padding: 50px 20px;
+  background: #F5F5F7;  /* Use a light background for better readability */
+  text-align: center;
+  color: #000;
+}
+
+.waitlist-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.waitlist-section h2 {
+  margin-bottom: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.waitlist-section p {
+  margin-bottom: 30px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.waitlist-section iframe {
+  width: 100%;
+  max-width: 640px;
+  height: 800px;
+  border: none;
+  margin: 0 auto;
+  display: block;
+}
