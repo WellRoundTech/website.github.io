@@ -4,43 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DeskOrbie - Smart Wellness Display</title>
-  
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  
-  <!-- CSS Imports -->
+
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="nav.css">
-  <link rel="stylesheet" href="head.css">
-  <link rel="stylesheet" href="seprate-exp.css">
-  <link rel="stylesheet" href="scroll_progress.css">
-  <link rel="stylesheet" href="waitlist.css">
-  <link rel="icon" type="image/x-icon" href="">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="logo.png">
 
   <style>
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
     /* Global Styles */
     body {
       font-family: 'Poppins', sans-serif;
       background: #fff;
       color: #333;
       overflow-x: hidden;
-      width: 100%;
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
-    
-    nav, 
+    nav,
     .mobile-menu,
     .desktop-menu,
     footer,
     .footer-content,
-    .footer-links,
-    .useless-button {
+    .footer-links {
       font-family: 'Montserrat', sans-serif;
     }
 
-    /* Custom Scrollbar Styling */
+    /* Custom Scrollbar */
     ::-webkit-scrollbar {
       width: 12px;
     }
@@ -56,13 +55,78 @@
       scrollbar-color: #ccc #f0f0f0;
     }
 
-    /* Hero Section */
+    /* Progress Bar */
+    .progress-container {
+      position: fixed;
+      width: 100%;
+      height: 8px;
+      top: 0;
+      background: #f0f0f0;
+      z-index: 99;
+    }
+    .progress-bar {
+      height: 8px;
+      background: #ccc;
+      width: 0%;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 20px;
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      max-width: 1200px; /* or whatever max width suits your layout */
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0 20px; /* ensures content stays inside the viewport */
+    }
+
+    .nav-logo {
+      height: 40px;
+    }
+    .desktop-menu {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+    .desktop-menu li {
+      font-weight: 600;
+      /* Added slight padding for better spacing */
+      padding: 5px;
+    }
+    .desktop-menu a {
+      text-decoration: none;
+      color: #333;
+    }
+    @media (max-width: 768px) {
+      .desktop-menu li {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Hero Section – Copied from the original website */
     .about-me {
       margin: 0;
       padding: 85px 0 0 0; /* Space for nav bar */
       width: 100%;
       height: 60vh;
-      background-image: url('DeskOrbie_Banner.webp');
+      background-image: url('DeskOrbie_Banner.webp'); /* Placeholder for DeskOrbie_Banner.webp */
       background-size: cover;
       background-position: center;
       color: #333;
@@ -72,9 +136,8 @@
       justify-content: flex-end;
       text-align: center;
     }
-
     .DeskOrbie-title {
-      font-size: clamp(4rem, 8vw, 8rem) !important;
+      font-size: clamp(4rem, 8vw, 8rem);
       margin-top: 50px;
       font-weight: 700;
       margin-bottom: 5px;
@@ -88,13 +151,11 @@
       letter-spacing: 2px;
       animation: gradient 3s linear infinite;
     }
-
     @keyframes gradient {
       to {
         background-position: 200% center;
       }
     }
-
     .about-me-tagline {
       font-size: 1.5rem;
       max-width: 600px;
@@ -104,87 +165,9 @@
       font-weight: 300;
       color: #333;
     }
-
-    /* Feature Sections */
-    .feature-section {
-      padding: 30px 20px;
-      background: #fff;
-      color: #333;
-      text-align: center;
-    }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-      max-width: 1200px;
-      margin: 20px auto;
-    }
-
-    .feature-card {
-      background: #fff;
-      border: 1px solid #ccc;
-      border-radius: 20px;
-      padding: 40px;
-      text-align: left;
-      font-family: 'Poppins', sans-serif;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .feature-icon {
-      font-size: 32px;
-      margin-bottom: 20px;
-      background: linear-gradient(135deg, #7b4397, #dc2430);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .feature-title {
-      font-size: 24px;
-      margin-bottom: 15px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-    }
-
-    .feature-description {
-      opacity: 0.8;
-      line-height: 1.6;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 300;
-    }
-
-    /* Engineering Section */
-    .engineering-section {
-      background: #fff;
-      border-top: 1px solid #ccc;
-      border-bottom: 1px solid #ccc;
-    }
-
-    .section-title {
-      font-size: 2.5em;
-      margin-bottom: 40px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      color: #333;
-    }
-
-    /* Call to Action Section */
-    .cta-section {
-      color: #F5F5F7;
-      padding: 50px 20px;
-      text-align: center;
-      background: linear-gradient(135deg, #7b4397, #dc2430);
-      font-family: 'Poppins', sans-serif;
-      margin-bottom: -1px;
-    }
-
     .cta-buttons {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      margin-top: 20px;
+      margin-bottom: 30px;
     }
-
     .cta-button {
       display: inline-block;
       padding: 15px 30px;
@@ -193,83 +176,104 @@
       font-weight: 600;
       font-family: 'Montserrat', sans-serif;
       transition: transform 0.3s ease;
+      margin: 5px;
     }
-
-    /* Buttons in CTA Section */
     .cta-button.primary {
-      /*make color white for background and text black*/
       background: #F5F5F7;
       color: #333;
     }
     .cta-button.secondary {
       background: transparent;
-      color: #F5F5F7;
-      border: 2px solid #F5F5F7;
-    }
-    .cta-button.primary.header {
-      background: linear-gradient(135deg, #7b4397, #dc2430);
-      color: #F5F5F7;
-      margin-bottom: 50px;
+      color: #333;
+      border: 2px solid #333;
     }
     .cta-button:hover {
       transform: scale(1.05);
     }
 
-    /* Waitlist Form Section */
+    /* Feature Sections */
+    .feature-section {
+      padding: 60px 20px;
+      background: #fff;
+      text-align: center;
+    }
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: #333;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .feature-card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      text-align: left;
+    }
+    .feature-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .feature-title {
+      font-size: 1.4rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .feature-description {
+      font-size: 1rem;
+      line-height: 1.6;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 300;
+      color: #555;
+    }
+
+    /* Waitlist Section */
     .waitlist-section {
       padding: 50px 20px;
       background: #fff;
       text-align: center;
       color: #333;
     }
-
     .waitlist-container {
       max-width: 800px;
       margin: 0 auto;
     }
-
-    .waitlist-section iframe {
+    .waitlist-container iframe {
       width: 100%;
       max-width: 640px;
       height: 800px;
-      border: 1px solid #ccc;
+      border: 1px solid #eee;
       border-radius: 10px;
-      margin: 0 auto;
-      display: block;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     }
 
     /* Footer */
     footer {
       background: #f0f0f0;
-      color: #333;
-      margin-top: 0;
-      border-top: none;
       padding: 20px 0;
-    }
-
-    .footer-content {
-      margin-top: 0;
       text-align: center;
+      color: #333;
     }
-
+    .footer-logo {
+      height: 40px;
+      margin-bottom: 10px;
+    }
     .footer-links a {
       color: #333;
       margin: 0 10px;
       text-decoration: none;
-    }
-    
-    /* Media Queries */
-    @media (max-width: 768px) {
-      .about-me-tagline {
-        font-size: 1.1rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .about-me-tagline {
-        font-size: 0.9rem;
-      }
+      font-family: 'Montserrat', sans-serif;
     }
   </style>
 </head>
@@ -280,41 +284,28 @@
   </div>
 
   <!-- Navigation -->
-  <nav id="nav">
-    <div class="hamburger-icon">
+  <nav>
+    <div class="nav-inner">
       <a href="#home">
         <img src="logo.png" alt="Logo" class="nav-logo">
       </a>
-      <div class="menu-icon" onclick="toggleMenu()">
-        <span class="line line1"></span>
-        <span class="line line2"></span>
-      </div>
+      <ul class="desktop-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#waitlist">Waitlist</a></li>
+        <li><a href="mailto:wellroundtech@outlook.com">Contact</a></li>
+      </ul>
     </div>
-
-    <div class="mobile-menu hidden">
-      <a href="#home">Home</a>
-      <a href="#waitlist">Waitlist</a>
-      <!-- Uncomment below if you also want a Contact link in mobile menu -->
-      <a href="mailto:wellroundtech@outlook.com">Contact</a>
-    </div>
-
-    <ul class="desktop-menu">
-      <a href="#home"><li><img src="logo.png" alt="Logo" class="nav-logo"></li></a>
-      <a href="#home"><li>Home</li></a>
-      <a href="#waitlist"><li>Waitlist</li></a>
-      <!-- Uncomment below if you also want a Contact link in nav menu -->
-      <a href="mailto:wellroundtech@outlook.com"><li>Contact</li></a>
-    </ul>
   </nav>
+  
 
-  <!-- Hero Section -->
+  <!-- Hero Section (Original Structure) -->
   <section class="about-me" id="home">
     <h1 class="DeskOrbie-title">DeskOrbie</h1>
     <p class="about-me-tagline">
       Transform your workspace with our smart wellness display – built for prudctivity and health.
     </p>
     <div class="cta-buttons">
-      <a href="#waitlist" class="cta-button primary header">Join Waitlist</a>
+      <a href="#waitlist" class="cta-button primary">Join Waitlist</a>
     </div>
   </section>
 
@@ -323,109 +314,75 @@
     <h2 class="section-title">Why Choose DeskOrbie?</h2>
     <div class="feature-grid">
       <div class="feature-card">
-        <div class="feature-icon">
-          <i class="fas fa-moon"></i>
-        </div>
+        <img src="logo.png" alt="Feature Image" loading="lazy">
         <h3 class="feature-title">Sleep-Friendly</h3>
         <p class="feature-description">
           Automatic brightness adjustment and blue light reduction for better sleep.
         </p>
       </div>
-
       <div class="feature-card">
-        <div class="feature-icon">
-          <i class="fas fa-heart"></i>
-        </div>
+        <img src="logo.png" alt="Feature Image" loading="lazy">
         <h3 class="feature-title">Wellness Reminders</h3>
         <p class="feature-description">
-          Stay healthy with smart reminders for movement, hydration, and eye rest. Customizable reminder intervals keep you on track.
+          Smart reminders for movement, hydration, and eye rest.
         </p>
       </div>
-
       <div class="feature-card">
-        <div class="feature-icon">
-          <i class="fas fa-hourglass-half"></i>
-        </div>
+        <img src="logo.png" alt="Feature Image" loading="lazy">
         <h3 class="feature-title">Focus Timer</h3>
         <p class="feature-description">
-          Boost your productivity with an intuitive timer designed to keep you focused.
+          Boost your productivity with an intuitive focus timer.
         </p>
       </div>
-
       <div class="feature-card">
-        <div class="feature-icon">
-          <i class="fas fa-smile"></i>
-        </div>
+        <img src="logo.png" alt="Feature Image" loading="lazy">
         <h3 class="feature-title">User-Friendly Interface</h3>
         <p class="feature-description">
-          Engaging and easy-to-use display that puts your wellness and productivity first.
+          Engaging and easy-to-use display designed for wellness and productivity.
         </p>
       </div>
-
       <div class="feature-card">
-        <div class="feature-icon">
-          <i class="fas fa-wifi"></i>
-        </div>
+        <img src="logo.png" alt="Feature Image" loading="lazy">
         <h3 class="feature-title">Smart Setup</h3>
         <p class="feature-description">
-          Simple configuration through a user-friendly interface. Customize all settings with just a few taps.
+          Simple, intuitive configuration via a user-friendly interface.
         </p>
       </div>
-
       <div class="feature-card">
-        <div class="feature-icon">
-          <i class="fas fa-mobile-alt"></i>
-        </div>
+        <img src="logo.png" alt="Feature Image" loading="lazy">
         <h3 class="feature-title">Sleek, Compact Design</h3>
         <p class="feature-description">
-          Modern design and compact form factor, perfect for any desk or bedside table.
+          Modern design perfectly suited for any desk or bedside table.
         </p>
       </div>
     </div>
   </section>
 
   <!-- Product Quality & Innovation Section -->
-  <section class="feature-section engineering-section">
+  <section class="feature-section" style="background:#f9f9f9;">
     <h2 class="section-title">Product Quality & Innovation</h2>
     <div class="feature-grid">
       <div class="feature-card">
-        <div class="feature-icon">
-          <i class="fas fa-cube"></i>
-        </div>
+        <img src="logo.png" alt="Feature Image" loading="lazy">
         <h3 class="feature-title">High-Quality Design</h3>
         <p class="feature-description">
-          Custom 3D design and precision manufacturing deliver a product that’s as durable as it is beautiful.
+          Custom 3D design and precision manufacturing ensure durability and beauty.
         </p>
       </div>
-
       <div class="feature-card">
-        <div class="feature-icon">
-          <i class="fas fa-microchip"></i>
-        </div>
+        <img src="logo.png" alt="Feature Image" loading="lazy">
         <h3 class="feature-title">Optimized Performance</h3>
         <p class="feature-description">
-          Advanced hardware and software ensure seamless operation and reliable performance.
+          Advanced hardware and software for seamless, reliable operation.
         </p>
       </div>
-
       <div class="feature-card">
-        <div class="feature-icon">
-          <i class="fas fa-code"></i>
-        </div>
+        <img src="logo.png" alt="Feature Image" loading="lazy">
         <h3 class="feature-title">Innovative Technology</h3>
         <p class="feature-description">
-          Efficient power management and seamless Wi-Fi connectivity, ensuring a smooth user experience.
+          Efficient power management and connectivity deliver a smooth user experience.
         </p>
       </div>
-    </div>
-  </section>
-
-  <!-- Call to Action Section -->
-  <section class="cta-section">
-    <h2>Ready to transform your daily routine?</h2>
-    <div class="cta-buttons">
-      <a href="mailto:wellroundtech@outlook.com" class="cta-button secondary">Contact</a>
-      <a href="#waitlist" class="cta-button primary">Join Waitlist</a>
     </div>
   </section>
 
@@ -433,12 +390,7 @@
   <section class="waitlist-section" id="waitlist">
     <div class="waitlist-container">
       <h2 class="section-title">Join the DeskOrbie Waitlist!</h2>
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdWng4sGxCewafWj5ABqpoQapoxdHFfyU8r1y3XnSCjXNY5UQ/viewform?embedded=true" 
-              width="640" 
-              height="800" 
-              frameborder="0" 
-              marginheight="0" 
-              marginwidth="0">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdWng4sGxCewafWj5ABqpoQapoxdHFfyU8r1y3XnSCjXNY5UQ/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">
         Loading…
       </iframe>
     </div>
@@ -450,18 +402,24 @@
       <a href="#home">
         <img src="logo.png" alt="Logo" class="footer-logo" loading="lazy">
       </a>
-      <p>Copyright &copy; 2025 DeskOrbie. All Rights Reserved.</p>
+      <p>&copy; 2025 DeskOrbie. All Rights Reserved.</p>
       <div class="footer-links">
         <a href="#home">Home</a>
         <a href="#waitlist">Waitlist</a>
-        <!-- Uncomment below if you want a Contact link in the footer -->
         <a href="mailto:wellroundtech@outlook.com">Contact</a>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="script.js"></script>
-  <script src="scroll_progress.js"></script>
+  <script>
+    // Scroll Progress Bar Functionality
+    window.onscroll = function() { scrollProgress(); };
+    function scrollProgress() {
+      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      document.getElementById("myBar").style.width = scrolled + "%";
+    }
+  </script>
 </body>
 </html>
