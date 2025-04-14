@@ -141,7 +141,7 @@
     .DeskOrbie-title {
       font-size: clamp(2.5rem, 8vw, 8rem) !important;
       font-weight: 700;
-      margin-bottom: -10px;
+      margin-bottom: -40px;
       font-family: 'Montserrat', sans-serif;
       background: linear-gradient(to right, #7b4397, #dc2430, #7b4397);
       background-size: 200% auto;
@@ -154,7 +154,7 @@
     .DeskOrbie-title-secondary {
       font-size: clamp(0.8rem, 8vw, 3rem) !important;
       font-weight: 700;
-      margin-bottom: 5px;
+      margin-bottom: -25px;
       font-family: 'Montserrat', sans-serif;
       background: linear-gradient(to right, #7b4397, #dc2430, #7b4397);
       background-size: 200% auto;
@@ -168,7 +168,7 @@
       to { background-position: 200% center; }
     }
     .about-me-tagline {
-      font-size: 1.3rem;
+      font-size: clamp(0.5rem, 8vw, 1.3rem) !important;
       max-width: 600px;
       padding: 0 20px;
       font-weight: 300;
@@ -280,6 +280,13 @@
         font-size: 1rem;
       }
     }
+    @media (max-width: 375px) {
+      .about-me-tagline {
+        font-size: 0.8rem !important;  /* Adjust this value as needed */
+        padding-top: 15px;
+      }
+    }
+
     /* Footer */
     footer {
       background: #f0f0f0;
