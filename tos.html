@@ -76,7 +76,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 15px 20px;
+      padding: 15px 0px; /*no horizontal padding*/
       background: #fff;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       position: fixed;
@@ -84,15 +84,17 @@
       top: 0;
       z-index: 100;
     }
+
     .nav-inner {
-      max-width: 1200px;
+      max-width: 1200px; /* or whatever max width suits your layout */
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      padding: 0 20px;
       box-sizing: border-box;
+      /*padding: 0 20px; /* ensures content stays inside the viewport */
+      /*removed above to center things better*/
     }
     .nav-logo {
       height: 40px;
