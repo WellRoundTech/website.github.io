@@ -147,6 +147,39 @@
     .content ul { padding-left: 1.2em; }
     .content li { margin-bottom: 0.5em; }
 
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .cta-button {
+      display: inline-block;
+      padding: 15px 30px;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      font-family: 'Montserrat', sans-serif;
+      transition: transform 0.3s ease;
+    }
+    .cta-button.primary {
+      background: #f0f0f0;
+      color: #000;
+    }
+    .cta-button.secondary {
+      background: transparent;
+      color: #f0f0f0;
+      border: 2px solid #f0f0f0;
+    }
+    .cta-button.secondary.header {
+      background: transparent;
+      color: #f0f0f0;
+      border: 2px solid #f0f0f0;
+    }
+    .cta-button:hover {
+      transform: scale(1.05);
+    }
+
     /* Back Home button */
     .back-home-container {
       text-align: left;
@@ -297,7 +330,7 @@
 
     <!-- Back Home Button -->
     <div class="back-home-container">
-        <a href="index.html" class="back-home-button">
+        <a href="index.html" class="cta-button primary header">
           <i class="fas fa-arrow-left"></i> Back to Home
         </a>
     </div>
