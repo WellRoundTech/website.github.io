@@ -93,12 +93,14 @@
       align-items: center;
       width: 100%;
       box-sizing: border-box;
+      padding-right:5px;
       /*padding: 0 20px; /* ensures content stays inside the viewport */
       /*removed above to center things better*/
     }
 
     .nav-logo {
       height: 40px;
+      padding-left:10px;
     }
     .desktop-menu {
       list-style: none;
@@ -116,8 +118,13 @@
       text-decoration: none;
       color: #333;
     }
+
+    
     
     @media (max-width: 768px) {
+      .nav-logo {
+        padding-left: 15px;
+      }
       .desktop-menu li {
         font-size: 0.9rem;
       }
